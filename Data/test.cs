@@ -15,5 +15,7 @@ namespace testprojectaspnetcore3_1.Data
 
         public string address { get; set; }
 
+        public int tel { get; set; }
+
     }
 }
