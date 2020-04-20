@@ -8,5 +8,6 @@ namespace testprojectaspnetcore3_1.Data
     public class test
     {
         public int Id { get; set; }
+        public string Name { get; set; }
     }
 }
