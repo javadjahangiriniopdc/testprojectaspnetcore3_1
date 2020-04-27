@@ -6,7 +6,7 @@ using testprojectaspnetcore3_1.Data;
 
 namespace testprojectaspnetcore3_1.Service
 {
-    interface IkalaRepositroy:IRepositoryBase<Kala>
+  public  interface IkalaRepositroy:IRepositoryBase<Kala>
     {
 
     }

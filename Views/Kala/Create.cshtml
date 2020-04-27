@@ -1,0 +1,38 @@
+﻿@model testprojectaspnetcore3_1.Models.CreateKalaViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>درج</h1>
+
+<h4>درج کالا</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Kalaname" class="control-label"></label>
+                <input asp-for="Kalaname" class="form-control" />
+                <span asp-validation-for="Kalaname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KalaPrice" class="control-label"></label>
+                <input asp-for="KalaPrice" class="form-control" />
+                <span asp-validation-for="KalaPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-success btn-block" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary btn-block">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

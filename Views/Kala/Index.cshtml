@@ -1,0 +1,60 @@
+﻿@model IEnumerable<testprojectaspnetcore3_1.Models.DetailsKalaViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>کالاها</h1>
+<hr/>
+
+<p>
+    <a asp-action="Create" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i>درج کالا</a>
+</p>
+<table id="tblData" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.KalaId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kalaname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KalaPrice)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KalaId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kalaname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KalaPrice)
+            </td>
+            <td>
+
+                <a asp-action="Edit" asp-route-id="@item.KalaId" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                <a asp-action="Details" asp-route-id="@item.KalaId" class="btn btn-info"><i class="fa fa-info" aria-hidden="true"></i></a>
+                <a asp-action="Delete" asp-route-id="@item.KalaId" class="btn btn-danger" onclick="return confirm('آیا برای حذف اطلاعات مطمن هستید؟')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+@section Scripts{ 
+    <script>
+        $(document).ready( function () {
+            $('#tblData').DataTable();
+        } );
+
+    </script>
+
+}
+

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace testprojectaspnetcore3_1.Service
 {
-    interface IRepositoryBase<T> where T : class
+  public  interface IRepositoryBase<T> where T : class
     {
         ICollection<T> FindAll();
         T FindById(int id);
