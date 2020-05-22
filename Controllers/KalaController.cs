@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using testprojectaspnetcore3_1.Data;
@@ -11,6 +12,7 @@ using testprojectaspnetcore3_1.Service;
 
 namespace testprojectaspnetcore3_1.Controllers
 {
+   
     public class KalaController : Controller
     {
         private readonly IkalaRepositroy _repo;
@@ -24,6 +26,7 @@ namespace testprojectaspnetcore3_1.Controllers
         }
 
         // GET: Kala
+        [Authorize(Roles = "Administrator,User")]
         public ActionResult Index()
         {
             var kala = _repo.FindAll().ToList();
@@ -48,7 +51,9 @@ namespace testprojectaspnetcore3_1.Controllers
       
         }
 
+
         // GET: Kala/Create
+        [Authorize(Roles = "Administrator,User")]
         public ActionResult Create()
         {
             return View();
@@ -57,6 +62,7 @@ namespace testprojectaspnetcore3_1.Controllers
         // POST: Kala/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator,User")]
         public ActionResult Create(CreateKalaViewModel model)
         {
             try
@@ -85,6 +91,7 @@ namespace testprojectaspnetcore3_1.Controllers
         }
 
         // GET: Kala/Edit/5
+        [Authorize(Roles = "Administrator")]
         public ActionResult Edit(int id)
         {
             if (!_repo.isExists(id))
@@ -101,6 +108,7 @@ namespace testprojectaspnetcore3_1.Controllers
         // POST: Kala/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator")]
         public ActionResult Edit(int id, DetailsKalaViewModel model)
         {
             try
